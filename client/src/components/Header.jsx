@@ -13,9 +13,8 @@ export default function Header() {
         className="self-center whitespace-nowrap text-sm sm:text-xl font-medium dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to bg-pink-500 rounded-lg text-white">
-          7-minutes-school...
+          10-MiNuTeS-ScHoOl...
         </span>
-        learn..
       </Link>
       <form>
         <TextInput
@@ -41,7 +40,12 @@ export default function Header() {
         </button>
         <Link to="/sign-in">
           <Button gradientDuoTone="purpleToBlue" outline>
-            Sign In
+            Sign-In
+          </Button>
+        </Link>
+        <Link to="/sign-up">
+          <Button gradientDuoTone="purpleToBlue" outline>
+            Sign-Up
           </Button>
         </Link>
         <Navbar.Toggle />
