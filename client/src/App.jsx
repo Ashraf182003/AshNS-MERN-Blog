@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard"
 import Signin from "./pages/Signin"
 import Projects from "./pages/Projects"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <Route path="/projects" element={<Projects/>}/>
       <Route path="/*" element={<ErrorPage />} />
     </Routes>
+    <Footer/>
     </BrowserRouter>
   )
 }
