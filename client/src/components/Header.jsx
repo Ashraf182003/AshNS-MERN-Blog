@@ -38,12 +38,12 @@ export default function Header() {
           {" "}
           <FaMoon />
         </button>
-        <Link to="/sign-in">
+        <Link to="/signin">
           <Button gradientDuoTone="purpleToBlue" outline>
             Sign-In
           </Button>
         </Link>
-        <Link to="/sign-up">
+        <Link to="/signup">
           <Button gradientDuoTone="purpleToBlue" outline>
             Sign-Up
           </Button>

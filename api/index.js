@@ -8,9 +8,10 @@ import cors from "cors"
 const app = express();
 app.use(express.json());
 app.use(cors());
-const port = 3000;
+const port = 3001;
 
-
+app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
 
 app.listen(port, () => {
   console.log("Server is connected on port:" + port);
@@ -24,8 +25,7 @@ app.listen(port, () => {
 });
 
 
-app.use("/api/user", userRoutes);
-app.use("/api/auth", authRoutes);
+
 app.use((err, req, res, next)=>{   // this midleware will take all req from frontend {app.use()} and catch any error that is thrown in the application
     const statusCode =err.statusCode || 500
     const message = err.message||'Internal Server Error';

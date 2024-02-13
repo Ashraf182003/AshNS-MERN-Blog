@@ -1,10 +1,10 @@
 import { Alert, Button, Label, TextInput } from 'flowbite-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-//import OAuth from '../components/OAuth';
 
-export default function SignUp() {
+
+
+export default function Signup() {
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
@@ -20,13 +20,17 @@ export default function SignUp() {
     }
     try {
       setErrorMessage(null);
-      const res = await axios.post('/api/auth/signup', formData);
-      const data = res.data;
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json()
       if (data.success === false) {
         return setErrorMessage("User already exists with that username or email");
       }
       if (res.status === 200) {
-        navigate('/sign-in');
+        navigate('/signin');
       }
     } catch (error) {
       setErrorMessage("User already exists with that username or email");
@@ -79,7 +83,7 @@ export default function SignUp() {
             <Button gradientDuoTone='purpleToPink' type='submit'>
               Sign Up
             </Button>
-            {/*<OAuth />*/}
+            
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span>Have an account?</span>
