@@ -5,6 +5,7 @@ import About from "./pages/About"
 import ErrorPage from "./pages/ErrorPage"
 import Signup from "./pages/SignUp"
 import Dashboard from "./pages/Dashboard"
+import PrivateRoute from './components/PrivateRoute';
 import SignIn from "./pages/Signin"
 import Projects from "./pages/Projects"
 import Header from "./components/Header"
@@ -21,7 +22,9 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/signin" element= {<SignIn/>}/>
       <Route path="/signup" element={<Signup />} />
-      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route element={<PrivateRoute />}>
+          <Route path='/dashboard' element={<Dashboard />} />
+        </Route>
       <Route path="/projects" element={<Projects/>}/>
       <Route path="/*" element={<ErrorPage />} />
     </Routes>

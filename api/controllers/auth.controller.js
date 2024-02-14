@@ -39,7 +39,7 @@ export const signin = async (req, res, next) => {
   if (!email || !password || email === '' || password === '') {
     next(errorHandler(400, 'All fields are required'));
   }
-console.log(req.body)
+
   try {
     const validUser = await User.findOne({ email });
     if (!validUser) {
@@ -51,7 +51,7 @@ console.log(req.body)
     }
     const token = jwt.sign(
       { id: validUser._id, isAdmin: validUser.isAdmin },
-      process.env.JWT_SECRET,{ expiresIn: "4d" }
+      process.env.JWT_SECRET
     );
 
     const { password: pass, ...rest } = validUser._doc;
@@ -113,7 +113,6 @@ export const google = async (req, res, next) => {
     next(error);
   }
 };
-
 
 // import mongoose from "mongoose";
 // import bcryptjs from "bcryptjs";
